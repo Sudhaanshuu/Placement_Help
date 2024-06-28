@@ -32,9 +32,6 @@ cd Placement_Help
 - Contributions are welcome! If you have any ideas or suggestions to improve this project, feel free to fork the repository and submit a pull request.
 - check CONTRIBUTING.md for details.
 
-### License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 MIT License
 -----------
 
