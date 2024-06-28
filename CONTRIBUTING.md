@@ -54,6 +54,9 @@ Thank you for considering contributing to Placement Help By contributing, you ca
 2. **Click on the "New Pull Request"** button next to the branch dropdown.
 3. **Provide a brief description** of your changes and submit the PR.
 
+### Contributors Name
+- Vashu[Propile](https://github.com/vashuuDev/)
+
 ## Code of Conduct
 
 Please note that this project has adopted the [Code of Conduct](CODE_OF_CONDUCT.md). For more information see our [Code of Conduct](CODE_OF_CONDUCT.md) page.
