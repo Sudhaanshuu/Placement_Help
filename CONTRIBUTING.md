@@ -55,7 +55,8 @@ Thank you for considering contributing to Placement Help By contributing, you ca
 3. **Provide a brief description** of your changes and submit the PR.
 
 ### Contributors Name
-- Vashu[Propile](https://github.com/vashuuDev/)
+- Vashu [Propile](https://github.com/vashuuDev/)
+- Kritika Prasad [Propile](https://github.com/kritika4you/)
 
 ## Code of Conduct
 
