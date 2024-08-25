@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Face Detection with Laptop and IP Camera</title>
+    <title>Hiring Env</title>
     <link rel="stylesheet" type="text/css" href="iMG/Extra/css/bootstrap.css" />
     <!-- font awesome style -->
     <link rel="stylesheet" type="text/css" href="iMG/Extra/css/font-awesome.min.css" />
@@ -34,6 +34,21 @@
             left: 0;
             margin-top: 150px;
             margin-left: 40px;
+        }
+        
+        .btn {
+            background-color: #ff8a1d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-left: 50%;
+        }
+        
+        .btn:hover {
+            background-color: blue;
         }
     </style>
 </head>
@@ -79,6 +94,9 @@
         <img id="ipcam" src="http://192.168.118.90:8080/video" alt="IP Camera Stream">
         <canvas width="300" height="200" id="canvas1"></canvas>
         <canvas width="300 " height="200 " id="canvas2"></canvas>
+    </div>
+    <div>
+        <button class="btn">Start</button>
     </div>
 
     <script defer src="face-api.min.js "></script>
