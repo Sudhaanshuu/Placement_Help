@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Role Suggestion</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+    /* styles.css */
+    
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container {
+        width: 50%;
+        margin: 20px auto;
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1,
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+    
+    label {
+        display: block;
+        margin: 15px 0 5px;
+        color: #555;
+    }
+    
+    input[type="number"],
+    input[type="text"],
+    select {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0 20px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #5cb85c;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #4cae4c;
+    }
+    
+    #suggestedRole {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 1.2em;
+        color: #333;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Job Role Suggestion Form</h1>
+        <form id="jobRoleForm">
+            <h2>Academic Performance</h2>
+            <label for="os">Operating Systems Percentage:</label>
+            <input type="number" id="os" name="os" required>
+
+            <label for="algorithms">Algorithms Percentage:</label>
+            <input type="number" id="algorithms" name="algorithms" required>
+
+            <label for="programming">Programming Concepts Percentage:</label>
+            <input type="number" id="programming" name="programming" required>
+
+            <label for="softwareEng">Software Engineering Percentage:</label>
+            <input type="number" id="softwareEng" name="softwareEng" required>
+
+            <label for="networks">Computer Networks Percentage:</label>
+            <input type="number" id="networks" name="networks" required>
+
+            <label for="electronics">Electronics Subjects Percentage:</label>
+            <input type="number" id="electronics" name="electronics" required>
+
+            <label for="architecture">Computer Architecture Percentage:</label>
+            <input type="number" id="architecture" name="architecture" required>
+
+            <label for="mathematics">Mathematics Percentage:</label>
+            <input type="number" id="mathematics" name="mathematics" required>
+
+            <label for="communication">Communication Skills Percentage:</label>
+            <input type="number" id="communication" name="communication" required>
+
+            <label for="workHours">Hours Working Per Day:</label>
+            <input type="number" id="workHours" name="workHours" required>
+
+            <label for="logicalQuotient">Logical Quotient Rating:</label>
+            <input type="number" id="logicalQuotient" name="logicalQuotient" required>
+
+            <label for="hackathons">Hackathons Participated:</label>
+            <input type="number" id="hackathons" name="hackathons" required>
+
+            <label for="codingSkills">Coding Skills Rating:</label>
+            <input type="number" id="codingSkills" name="codingSkills" required>
+
+            <label for="publicSpeaking">Public Speaking Points:</label>
+            <input type="number" id="publicSpeaking" name="publicSpeaking" required>
+
+            <label for="longHours">Can Work Long Time Before System?</label>
+            <select id="longHours" name="longHours" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="selfLearning">Self-learning Capability:</label>
+            <select id="selfLearning" name="selfLearning" required>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+
+            <label for="extraCourses">Extra-courses Did:</label>
+            <input type="text" id="extraCourses" name="extraCourses" required>
+
+            <label for="certifications">Certifications:</label>
+            <input type="text" id="certifications" name="certifications" required>
+
+            <label for="workshops">Workshops Attended:</label>
+            <input type="text" id="workshops" name="workshops" required>
+
+            <label for="talentTests">Talent Tests Taken?</label>
+            <input type="text" id="talentTests" name="talentTests" required>
+
+            <label for="olympiads">Olympiads Participated:</label>
+            <input type="text" id="olympiads" name="olympiads" required>
+
+            <label for="readingWriting">Reading and Writing Skills:</label>
+            <input type="number" id="readingWriting" name="readingWriting" required>
+
+            <label for="memory">Memory Capability Score:</label>
+            <input type="number" id="memory" name="memory" required>
+
+            <h2>Interests and Preferences</h2>
+            <label for="interestedSubjects">Interested Subjects:</label>
+            <input type="text" id="interestedSubjects" name="interestedSubjects" required>
+
+            <label for="careerArea">Interested Career Area:</label>
+            <input type="text" id="careerArea" name="careerArea" required>
+
+            <label for="jobHigherStudies">Job or Higher Studies?</label>
+            <select id="jobHigherStudies" name="jobHigherStudies" required>
+                <option value="Job">Job</option>
+                <option value="Higher Studies">Higher Studies</option>
+            </select>
+
+            <label for="companyType">Type of Company Want to Settle In:</label>
+            <input type="text" id="companyType" name="companyType" required>
+
+            <label for="inputsFromSeniors">Taken Inputs from Seniors or Elders?</label>
+            <select id="inputsFromSeniors" name="inputsFromSeniors" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="games">Interested in Games?</label>
+            <select id="games" name="games" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="bookType">Interested Type of Books:</label>
+            <input type="text" id="bookType" name="bookType" required>
+
+            <label for="salaryRange">Salary Range Expected:</label>
+            <input type="text" id="salaryRange" name="salaryRange" required>
+
+            <label for="relationship">In a Relationship?</label>
+            <select id="relationship" name="relationship" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="behaviour">Gentle or Tough Behaviour?</label>
+            <select id="behaviour" name="behaviour" required>
+                <option value="Gentle">Gentle</option>
+                <option value="Tough">Tough</option>
+            </select>
+
+            <label for="managementTechnical">Management or Technical Role?</label>
+            <select id="managementTechnical" name="managementTechnical" required>
+                <option value="Management">Management</option>
+                <option value="Technical">Technical</option>
+            </select>
+
+            <label for="salaryWork">Salary or Work Preference?</label>
+            <select id="salaryWork" name="salaryWork" required>
+                <option value="Salary">Salary</option>
+                <option value="Work">Work</option>
+            </select>
+
+            <label for="workStyle">Hard or Smart Worker?</label>
+            <select id="workStyle" name="workStyle" required>
+                <option value="Hard Worker">Hard Worker</option>
+                <option value="Smart Worker">Smart Worker</option>
+            </select>
+
+            <label for="teamExperience">Worked in Teams Before?</label>
+            <select id="teamExperience" name="teamExperience" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="introvert">Are You an Introvert?</label>
+            <select id="introvert" name="introvert" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <button type="submit">Get Suggested Job Role</button>
+        </form>
+
+        <div id="suggestedRole">
+            <!-- Suggested job role will appear here -->
+        </div>
+    </div>
+    <script>
+        // script.js
+        document.getElementById('jobRoleForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get all form values
+            const formData = new FormData(event.target);
+
+            // Example logic to suggest a job role
+            let suggestedRole = "Web Developer"; // Default role for example purposes
+
+            // Simple logic example based on coding skills rating
+            if (formData.get('codingSkills') >= 8) {
+                suggestedRole = "Software Developer";
+            } else if (formData.get('managementTechnical') === "Management") {
+                suggestedRole = "Project Manager";
+            } else if (formData.get('selfLearning') === "High") {
+                suggestedRole = "Data Scientist";
+            }
+
+            // Display the suggested job role
+            document.getElementById('suggestedRole').innerText = "Suggested Job Role: " + suggestedRole;
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
