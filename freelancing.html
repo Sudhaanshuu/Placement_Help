@@ -36,13 +36,13 @@
                     <nav class="navbar navbar-expand-lg custom_nav-container ">
                         <a class="navbar-brand" href="index.html">
                             <span>
-                              Freelance Hub
-                            </span>
+                              Placement Help
+              </span>
                         </a>
 
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class=""> </span>
-                        </button>
+              <span class=""> </span>
+                       </button>
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ">
@@ -59,7 +59,10 @@
                                     <a class="nav-link" href="mlmodel.html">ML Model</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="freelancing.html">Freelancing</a>
+                                    <a class="nav-link" href="lobby.html">Video call</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="freelancing.html">Freelance</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="ExamEnv.html">Test Env</a>
@@ -230,7 +233,24 @@
             </div>
         </section>
     </div>
-
+    <div id="chatbot">
+        <div id="chatbot-icon" onclick="toggleChatbot()">
+            🤖
+        </div>
+        <div id="chatbot-window">
+            <div id="chatbot-header">
+                <span>Suku AI</span>
+                <button id="close-chatbot" onclick="toggleChatbot()">X</button>
+            </div>
+            <div id="chatbot-messages"></div>
+            <div id="chatbot-input">
+                <input type="text" id="user-input" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+                <button onclick="sendMessage()">Send</button>
+                <button id="voice-btn" onclick="toggleVoice()">🔊</button>
+                <button id="mic-btn" onclick="startListening()">🎤</button>
+            </div>
+        </div>
+    </div>
 
     <section class="contact_section layout_padding" id="contact">
         <div class="container">
@@ -361,6 +381,7 @@
 
 
     <script src="script.js"></script>
+    <script src="bot.js"></script>
     <!-- Google Map -->
 
 

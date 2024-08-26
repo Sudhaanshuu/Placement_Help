@@ -1,265 +1,273 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Role Suggestion</title>
-    <link rel="stylesheet" href="styles.css">
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <link rel="icon" href="iMG/Website/p2.png" type="image/png">
+
+
+    <title>ML Models Help</title>
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="iMG/Extra/css/bootstrap.css" />
+    <!-- font awesome style -->
+    <link rel="stylesheet" type="text/css" href="iMG/Extra/css/font-awesome.min.css" />
+
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet" />
+
+
 </head>
 
-<style>
-    /* styles.css */
-    
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-    }
-    
-    .container {
-        width: 50%;
-        margin: 20px auto;
-        background-color: white;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
-    
-    h1,
-    h2 {
-        text-align: center;
-        color: #333;
-    }
-    
-    label {
-        display: block;
-        margin: 15px 0 5px;
-        color: #555;
-    }
-    
-    input[type="number"],
-    input[type="text"],
-    select {
-        width: 100%;
-        padding: 10px;
-        margin: 5px 0 20px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-    }
-    
-    button {
-        width: 100%;
-        padding: 10px;
-        background-color: #5cb85c;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-    
-    button:hover {
-        background-color: #4cae4c;
-    }
-    
-    #suggestedRole {
-        margin-top: 20px;
-        text-align: center;
-        font-size: 1.2em;
-        color: #333;
-    }
-</style>
-
 <body>
-    <div class="container">
-        <h1>Job Role Suggestion Form</h1>
-        <form id="jobRoleForm">
-            <h2>Academic Performance</h2>
-            <label for="os">Operating Systems Percentage:</label>
-            <input type="number" id="os" name="os" required>
+    <header class="header_section">
 
-            <label for="algorithms">Algorithms Percentage:</label>
-            <input type="number" id="algorithms" name="algorithms" required>
+        <div class="header_bottom">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container ">
+                    <a class="navbar-brand" href="index.html">
+                        <span>
+                          Placement Help
+          </span>
+                    </a>
 
-            <label for="programming">Programming Concepts Percentage:</label>
-            <input type="number" id="programming" name="programming" required>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class=""> </span>
+                   </button>
 
-            <label for="softwareEng">Software Engineering Percentage:</label>
-            <input type="number" id="softwareEng" name="softwareEng" required>
-
-            <label for="networks">Computer Networks Percentage:</label>
-            <input type="number" id="networks" name="networks" required>
-
-            <label for="electronics">Electronics Subjects Percentage:</label>
-            <input type="number" id="electronics" name="electronics" required>
-
-            <label for="architecture">Computer Architecture Percentage:</label>
-            <input type="number" id="architecture" name="architecture" required>
-
-            <label for="mathematics">Mathematics Percentage:</label>
-            <input type="number" id="mathematics" name="mathematics" required>
-
-            <label for="communication">Communication Skills Percentage:</label>
-            <input type="number" id="communication" name="communication" required>
-
-            <label for="workHours">Hours Working Per Day:</label>
-            <input type="number" id="workHours" name="workHours" required>
-
-            <label for="logicalQuotient">Logical Quotient Rating:</label>
-            <input type="number" id="logicalQuotient" name="logicalQuotient" required>
-
-            <label for="hackathons">Hackathons Participated:</label>
-            <input type="number" id="hackathons" name="hackathons" required>
-
-            <label for="codingSkills">Coding Skills Rating:</label>
-            <input type="number" id="codingSkills" name="codingSkills" required>
-
-            <label for="publicSpeaking">Public Speaking Points:</label>
-            <input type="number" id="publicSpeaking" name="publicSpeaking" required>
-
-            <label for="longHours">Can Work Long Time Before System?</label>
-            <select id="longHours" name="longHours" required>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-            </select>
-
-            <label for="selfLearning">Self-learning Capability:</label>
-            <select id="selfLearning" name="selfLearning" required>
-                <option value="High">High</option>
-                <option value="Medium">Medium</option>
-                <option value="Low">Low</option>
-            </select>
-
-            <label for="extraCourses">Extra-courses Did:</label>
-            <input type="text" id="extraCourses" name="extraCourses" required>
-
-            <label for="certifications">Certifications:</label>
-            <input type="text" id="certifications" name="certifications" required>
-
-            <label for="workshops">Workshops Attended:</label>
-            <input type="text" id="workshops" name="workshops" required>
-
-            <label for="talentTests">Talent Tests Taken?</label>
-            <input type="text" id="talentTests" name="talentTests" required>
-
-            <label for="olympiads">Olympiads Participated:</label>
-            <input type="text" id="olympiads" name="olympiads" required>
-
-            <label for="readingWriting">Reading and Writing Skills:</label>
-            <input type="number" id="readingWriting" name="readingWriting" required>
-
-            <label for="memory">Memory Capability Score:</label>
-            <input type="number" id="memory" name="memory" required>
-
-            <h2>Interests and Preferences</h2>
-            <label for="interestedSubjects">Interested Subjects:</label>
-            <input type="text" id="interestedSubjects" name="interestedSubjects" required>
-
-            <label for="careerArea">Interested Career Area:</label>
-            <input type="text" id="careerArea" name="careerArea" required>
-
-            <label for="jobHigherStudies">Job or Higher Studies?</label>
-            <select id="jobHigherStudies" name="jobHigherStudies" required>
-                <option value="Job">Job</option>
-                <option value="Higher Studies">Higher Studies</option>
-            </select>
-
-            <label for="companyType">Type of Company Want to Settle In:</label>
-            <input type="text" id="companyType" name="companyType" required>
-
-            <label for="inputsFromSeniors">Taken Inputs from Seniors or Elders?</label>
-            <select id="inputsFromSeniors" name="inputsFromSeniors" required>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-            </select>
-
-            <label for="games">Interested in Games?</label>
-            <select id="games" name="games" required>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-            </select>
-
-            <label for="bookType">Interested Type of Books:</label>
-            <input type="text" id="bookType" name="bookType" required>
-
-            <label for="salaryRange">Salary Range Expected:</label>
-            <input type="text" id="salaryRange" name="salaryRange" required>
-
-            <label for="relationship">In a Relationship?</label>
-            <select id="relationship" name="relationship" required>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-            </select>
-
-            <label for="behaviour">Gentle or Tough Behaviour?</label>
-            <select id="behaviour" name="behaviour" required>
-                <option value="Gentle">Gentle</option>
-                <option value="Tough">Tough</option>
-            </select>
-
-            <label for="managementTechnical">Management or Technical Role?</label>
-            <select id="managementTechnical" name="managementTechnical" required>
-                <option value="Management">Management</option>
-                <option value="Technical">Technical</option>
-            </select>
-
-            <label for="salaryWork">Salary or Work Preference?</label>
-            <select id="salaryWork" name="salaryWork" required>
-                <option value="Salary">Salary</option>
-                <option value="Work">Work</option>
-            </select>
-
-            <label for="workStyle">Hard or Smart Worker?</label>
-            <select id="workStyle" name="workStyle" required>
-                <option value="Hard Worker">Hard Worker</option>
-                <option value="Smart Worker">Smart Worker</option>
-            </select>
-
-            <label for="teamExperience">Worked in Teams Before?</label>
-            <select id="teamExperience" name="teamExperience" required>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-            </select>
-
-            <label for="introvert">Are You an Introvert?</label>
-            <select id="introvert" name="introvert" required>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-            </select>
-
-            <button type="submit">Get Suggested Job Role</button>
-        </form>
-
-        <div id="suggestedRole">
-            <!-- Suggested job role will appear here -->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#about"> About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#service">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="mlmodel.html">ML Model</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="lobby.html">Video call</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="freelancing.html">Freelance</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="ExamEnv.html">Test Env</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#contact">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
         </div>
-    </div>
-    <script>
-        // script.js
-        document.getElementById('jobRoleForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+    </header>
+    <main>
+        <div id="chatbot">
+            <div id="chatbot-icon" onclick="toggleChatbot()">
+                🤖
+            </div>
+            <div id="chatbot-window">
+                <div id="chatbot-header">
+                    <span>Suku AI</span>
+                    <button id="close-chatbot" onclick="toggleChatbot()">X</button>
+                </div>
+                <div id="chatbot-messages"></div>
+                <div id="chatbot-input">
+                    <input type="text" id="user-input" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+                    <button onclick="sendMessage()">Send</button>
+                    <button id="voice-btn" onclick="toggleVoice()">🔊</button>
+                    <button id="mic-btn" onclick="startListening()">🎤</button>
+                </div>
+            </div>
+        </div>
+        <form id="job-suggestion-form">
+            <fieldset>
+                <legend>Provide your details:</legend>
+                <label for="programming_concepts">Percentage in Programming Concepts:</label>
+                <input type="number" id="programming_concepts" name="programming_concepts" step="0.01" required>
 
-            // Get all form values
-            const formData = new FormData(event.target);
+                <label for="computer_architecture">Percentage in Computer Architecture:</label>
+                <input type="number" id="computer_architecture" name="computer_architecture" step="0.01" required>
 
-            // Example logic to suggest a job role
-            let suggestedRole = "Web Developer"; // Default role for example purposes
+                <label for="hours_working">Hours working per day:</label>
+                <input type="number" id="hours_working" name="hours_working" step="0.01" required>
 
-            // Simple logic example based on coding skills rating
-            if (formData.get('codingSkills') >= 8) {
-                suggestedRole = "Software Developer";
-            } else if (formData.get('managementTechnical') === "Management") {
-                suggestedRole = "Project Manager";
-            } else if (formData.get('selfLearning') === "High") {
-                suggestedRole = "Data Scientist";
-            }
+                <label for="logical_rating">Logical quotient rating:</label>
+                <input type="number" id="logical_rating" name="logical_rating" step="0.01" required>
 
-            // Display the suggested job role
-            document.getElementById('suggestedRole').innerText = "Suggested Job Role: " + suggestedRole;
-        });
-    </script>
+                <label for="coding_skills">Coding skills rating:</label>
+                <input type="number" id="coding_skills" name="coding_skills" step="0.01" required>
+
+                <label for="public_speaking">Public speaking points:</label>
+                <input type="number" id="public_speaking" name="public_speaking" step="0.01" required>
+
+                <label for="self_learning">Self-learning capability? (yes/no):</label>
+                <input type="text" id="self_learning" name="self_learning" required>
+
+                <label for="extra_courses">Extra-courses did:</label>
+                <input type="number" id="extra_courses" name="extra_courses" step="0.01" required>
+
+                <label for="certifications">Certifications:</label>
+                <input type="number" id="certifications" name="certifications" step="0.01" required>
+
+                <label for="workshops">Workshops:</label>
+                <input type="number" id="workshops" name="workshops" step="0.01" required>
+
+                <button type="submit">Submit</button>
+            </fieldset>
+        </form>
+        <div id="result" class="hidden">
+            <h2>Suggested Job Role</h2>
+            <p id="job-role"></p>
+        </div>
+    </main>
+
+
+    <section class="contact_section layout_padding" id="contact">
+        <div class="container">
+            <div class="heading_container">
+                <h2>
+                    Contact Us
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <form action="https://formspree.io/f/xovaagqk" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Name" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" placeholder="Subject" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Email" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="message" placeholder="Message" class="form-control message-box" />
+                        </div>
+                        <div class="d-flex">
+                            <button type="submit" class="btn btn-primary">SEND</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-md-6">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3743.953084387632!2d85.7332178734962!3d20.21927051509216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19a8fa59ac3c81%3A0xc81fc475faa77274!2sC.%20V.%20Raman%20Global%20University!5e0!3m2!1sen!2sin!4v1703240034278!5m2!1sen!2sin"
+                        frameborder="0" style="border:0; width: 100%; height: 370px;" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- end contact section -->
+
+
+    <!-- info section -->
+    <section class="info_section ">
+        <div class="container">
+            <h4>
+                Get In Touch
+            </h4>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="info_items">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a href="">
+                                    <div class="item ">
+                                        <div class="img-box ">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                        </div>
+                                        <p>
+                                            Bhubaneswar, Odisha
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="">
+                                    <div class="item ">
+                                        <div class="img-box ">
+                                            <i class="fa fa-phone" aria-hidden="true"></i>
+                                        </div>
+                                        <p>
+                                            +91 8252228793
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="">
+                                    <div class="item ">
+                                        <div class="img-box">
+                                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                                        </div>
+                                        <p>
+                                            sudhaanshuu@gmail.com
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="social-box">
+            <h4>
+                Follow Us
+            </h4>
+            <div class="box">
+                <a href="https://www.facebook.com/miifact">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="https://x.com/sudhan_shuu">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.youtube.com/@sudhaanshuu">
+                    <i class="fa fa-youtube" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.instagram.com/sudhan.shuu/">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- end info_section -->
+
+    <!-- footer section -->
+    <footer class="footer_section">
+        <div class="container">
+            <p>
+                &copy; <span id="displayDateYear"></span> All Rights Reserved By
+                <a href="https://sudhanshuuu.netlify.app/"> <span style="color: #ff8a1d;">Sudhanshu Kumar</span></a>
+            </p>
+        </div>
+    </footer>
+    <!-- footer section -->
+
+
     <script src="script.js"></script>
+    <script src="bot.js"></script>
+    <!-- Google Map -->
+
+
+
 </body>
 
 </html>

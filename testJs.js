@@ -60,7 +60,7 @@ function setupIpCam() {
 
     // Refresh the IP camera feed every second
     function refreshIpCam() {
-        ipcam.src = `http://192.168.118.90:8080/video?${new Date().getTime()}`;
+        ipcam.src = `http://192.168.141.66:8080/video?${new Date().getTime()}`;
     }
 
     ipcam.onload = () => {

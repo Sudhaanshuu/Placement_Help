@@ -1253,3 +1253,147 @@ body {
 #chatbot-input button:hover {
     background-color: #e07b1b;
 }
+
+
+/* Style for the main form container */
+
+#job-suggestion-form {
+    background-color: #fff;
+    /* White background for form */
+    border: 1px solid #ccc;
+    /* Light grey border */
+    border-radius: 8px;
+    /* Rounded corners */
+    padding: 20px;
+    /* Padding inside the form */
+    max-width: 600px;
+    /* Max width of the form */
+    margin: 20px auto;
+    /* Center the form horizontally */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for better appearance */
+}
+
+
+/* Fieldset styling */
+
+#job-suggestion-form fieldset {
+    border: 1px solid #ff8a1d;
+    /* Orange border */
+    border-radius: 8px;
+    /* Rounded corners */
+    padding: 20px;
+    /* Padding inside fieldset */
+    margin: 0;
+    /* No margin */
+}
+
+
+/* Legend styling */
+
+#job-suggestion-form legend {
+    font-size: 1.2em;
+    /* Slightly larger font size */
+    color: #ff8a1d;
+    /* Orange color */
+    margin-bottom: 10px;
+    /* Space below legend */
+}
+
+
+/* Label styling */
+
+#job-suggestion-form label {
+    display: block;
+    /* Block display for labels */
+    font-size: 1em;
+    /* Font size */
+    color: #333;
+    /* Dark grey color for text */
+    margin: 10px 0 5px;
+    /* Space around labels */
+}
+
+
+/* Input field styling */
+
+#job-suggestion-form input[type="number"],
+#job-suggestion-form input[type="text"] {
+    width: calc(100% - 22px);
+    /* Full width minus padding */
+    padding: 10px;
+    /* Padding inside input fields */
+    border: 1px solid #ddd;
+    /* Light grey border */
+    border-radius: 4px;
+    /* Rounded corners */
+    box-sizing: border-box;
+    /* Include padding and border in element's total width and height */
+    margin-bottom: 15px;
+    /* Space below input fields */
+}
+
+
+/* Button styling */
+
+#job-suggestion-form button {
+    background-color: #ff8a1d;
+    /* Orange background */
+    color: #fff;
+    /* White text */
+    border: none;
+    /* Remove default border */
+    padding: 10px 20px;
+    /* Padding inside button */
+    border-radius: 4px;
+    /* Rounded corners */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    font-size: 1em;
+    /* Font size */
+    transition: background-color 0.3s ease;
+    /* Smooth background color transition */
+}
+
+#job-suggestion-form button:hover {
+    background-color: #e67e22;
+    /* Darker orange on hover */
+}
+
+
+/* Styling for the result div */
+
+#result {
+    background-color: #f8f8f8;
+    /* Light grey background */
+    border: 1px solid #ff8a1d;
+    /* Orange border */
+    border-radius: 8px;
+    /* Rounded corners */
+    padding: 20px;
+    /* Padding inside result div */
+    max-width: 600px;
+    /* Max width of result div */
+    margin: 20px auto;
+    /* Center the result div horizontally */
+    display: none;
+    /* Hidden by default */
+}
+
+
+/* Heading inside result div */
+
+#result h2 {
+    color: #ff8a1d;
+    /* Orange color */
+    margin-top: 0;
+    /* No margin at the top */
+}
+
+
+/* Paragraph inside result div */
+
+#result p {
+    color: #333;
+    /* Dark grey color */
+}
