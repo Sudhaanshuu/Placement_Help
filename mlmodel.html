@@ -10,8 +10,7 @@
     <!-- Site Metas -->
     <link rel="icon" href="iMG/Website/p2.png" type="image/png">
 
-
-    <title>ML Models Help</title>
+    <title>Placement Help</title>
 
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="iMG/Extra/css/bootstrap.css" />
@@ -20,59 +19,87 @@
 
     <!-- Custom styles for this template -->
     <link href="style.css" rel="stylesheet" />
-
-
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .suku {
+            position: fixed;
+            top: 70px;
+            /* Adjust this based on the height of your navbar */
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: calc(100% - 70px);
+            /* Adjust this to match the height of the navbar */
+        }
+        
+        .suku iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
 </head>
 
 <body>
-    <header class="header_section">
-
-        <div class="header_bottom">
-            <div class="container-fluid">
-                <nav class="navbar navbar-expand-lg custom_nav-container ">
-                    <a class="navbar-brand" href="index.html">
-                        <span>
-                          Placement Help
-          </span>
-                    </a>
-
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class=""> </span>
-                   </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html#about"> About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html#service">Services</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="mlmodel.html">ML Model</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="lobby.html">Video call</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="freelancing.html">Freelance</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="ExamEnv.html">Test Env</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html#contact">Contact Us</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+    <div class="hero_area">
+        <!-- header section starts -->
+        <header class="header_section">
+            <div class="header_bottom">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-expand-lg custom_nav-container ">
+                        <a class="navbar-brand" href="index.html">
+                            <span>
+                                Placement Help
+                            </span>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class=""> </span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html#about"> About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html#service">Services</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="mlmodel.html">ML Model</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="lobby.html">Video call</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="freelancing.html">Freelance</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="ExamEnv.html">Test Env</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html#contact">Contact Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
             </div>
+        </header>
+
+        <!-- The iframe container -->
+        <div class="suku">
+            <iframe src="http://127.0.0.1:5000"></iframe>
         </div>
-    </header>
-    <main>
+
+
         <div id="chatbot">
             <div id="chatbot-icon" onclick="toggleChatbot()">
                 🤖
@@ -91,183 +118,10 @@
                 </div>
             </div>
         </div>
-        <form id="job-suggestion-form">
-            <fieldset>
-                <legend>Provide your details:</legend>
-                <label for="programming_concepts">Percentage in Programming Concepts:</label>
-                <input type="number" id="programming_concepts" name="programming_concepts" step="0.01" required>
-
-                <label for="computer_architecture">Percentage in Computer Architecture:</label>
-                <input type="number" id="computer_architecture" name="computer_architecture" step="0.01" required>
-
-                <label for="hours_working">Hours working per day:</label>
-                <input type="number" id="hours_working" name="hours_working" step="0.01" required>
-
-                <label for="logical_rating">Logical quotient rating:</label>
-                <input type="number" id="logical_rating" name="logical_rating" step="0.01" required>
-
-                <label for="coding_skills">Coding skills rating:</label>
-                <input type="number" id="coding_skills" name="coding_skills" step="0.01" required>
-
-                <label for="public_speaking">Public speaking points:</label>
-                <input type="number" id="public_speaking" name="public_speaking" step="0.01" required>
-
-                <label for="self_learning">Self-learning capability? (yes/no):</label>
-                <input type="text" id="self_learning" name="self_learning" required>
-
-                <label for="extra_courses">Extra-courses did:</label>
-                <input type="number" id="extra_courses" name="extra_courses" step="0.01" required>
-
-                <label for="certifications">Certifications:</label>
-                <input type="number" id="certifications" name="certifications" step="0.01" required>
-
-                <label for="workshops">Workshops:</label>
-                <input type="number" id="workshops" name="workshops" step="0.01" required>
-
-                <button type="submit">Submit</button>
-            </fieldset>
-        </form>
-        <div id="result" class="hidden">
-            <h2>Suggested Job Role</h2>
-            <p id="job-role"></p>
-        </div>
-    </main>
-
-
-    <section class="contact_section layout_padding" id="contact">
-        <div class="container">
-            <div class="heading_container">
-                <h2>
-                    Contact Us
-                </h2>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <form action="https://formspree.io/f/xovaagqk" method="POST">
-                        <div class="form-group">
-                            <input type="text" name="name" placeholder="Name" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="subject" placeholder="Subject" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <input type="email" name="email" placeholder="Email" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="message" placeholder="Message" class="form-control message-box" />
-                        </div>
-                        <div class="d-flex">
-                            <button type="submit" class="btn btn-primary">SEND</button>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="col-md-6">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3743.953084387632!2d85.7332178734962!3d20.21927051509216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19a8fa59ac3c81%3A0xc81fc475faa77274!2sC.%20V.%20Raman%20Global%20University!5e0!3m2!1sen!2sin!4v1703240034278!5m2!1sen!2sin"
-                        frameborder="0" style="border:0; width: 100%; height: 370px;" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-        </div>
-    </section>
-
-    <!-- end contact section -->
-
-
-    <!-- info section -->
-    <section class="info_section ">
-        <div class="container">
-            <h4>
-                Get In Touch
-            </h4>
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <div class="info_items">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a href="">
-                                    <div class="item ">
-                                        <div class="img-box ">
-                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                        </div>
-                                        <p>
-                                            Bhubaneswar, Odisha
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-4">
-                                <a href="">
-                                    <div class="item ">
-                                        <div class="img-box ">
-                                            <i class="fa fa-phone" aria-hidden="true"></i>
-                                        </div>
-                                        <p>
-                                            +91 8252228793
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-4">
-                                <a href="">
-                                    <div class="item ">
-                                        <div class="img-box">
-                                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                                        </div>
-                                        <p>
-                                            sudhaanshuu@gmail.com
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="social-box">
-            <h4>
-                Follow Us
-            </h4>
-            <div class="box">
-                <a href="https://www.facebook.com/miifact">
-                    <i class="fa fa-facebook" aria-hidden="true"></i>
-                </a>
-                <a href="https://x.com/sudhan_shuu">
-                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-                <a href="https://www.youtube.com/@sudhaanshuu">
-                    <i class="fa fa-youtube" aria-hidden="true"></i>
-                </a>
-                <a href="https://www.instagram.com/sudhan.shuu/">
-                    <i class="fa fa-instagram" aria-hidden="true"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- end info_section -->
-
-    <!-- footer section -->
-    <footer class="footer_section">
-        <div class="container">
-            <p>
-                &copy; <span id="displayDateYear"></span> All Rights Reserved By
-                <a href="https://sudhanshuuu.netlify.app/"> <span style="color: #ff8a1d;">Sudhanshu Kumar</span></a>
-            </p>
-        </div>
-    </footer>
-    <!-- footer section -->
-
+    </div>
 
     <script src="script.js"></script>
     <script src="bot.js"></script>
-    <!-- Google Map -->
-
-
-
 </body>
 
 </html>
