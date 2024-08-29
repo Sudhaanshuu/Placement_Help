@@ -4,51 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hiring Env</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Face Detection</title>
+    <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="iMG/Extra/css/bootstrap.css" />
     <!-- font awesome style -->
     <link rel="stylesheet" type="text/css" href="iMG/Extra/css/font-awesome.min.css" />
 
     <!-- Custom styles for this template -->
     <link href="style.css" rel="stylesheet" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script defer src="face-api.min.js"></script>
+    <script defer src="tem.js"></script>
     <style>
-        #container {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
+        /* body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
             height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             background-color: #f0f0f0;
-        }
+        } */
         
-        video,
-        img {
+        video {
+            position: absolute;
             border: 2px solid #ccc;
             border-radius: 8px;
-            width: 48%;
-            height: auto;
         }
         
         canvas {
             position: absolute;
-            top: 0;
-            left: 0;
-            margin-top: 110px;
-            margin-left: 0px;
-        }
-        
-        .btn {
-            background-color: #ff8a1d;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-left: 50%;
-        }
-        
-        .btn:hover {
-            background-color: blue;
         }
     </style>
 </head>
@@ -101,19 +88,8 @@
             </div>
         </div>
     </header>
-    <div id="container">
-        <video id="video1" autoplay muted></video>
-        <img id="ipcam" src="http://192.168.39.243:8080/video" alt="IP Camera Stream">
-        <canvas width="300" height="200" id="canvas1"></canvas>
-        <canvas width="300 " height="200 " id="canvas2"></canvas>
-    </div>
-    <div>
-        <button class="btn">Start</button>
-    </div>
+    <video id="video" width="720" height="560" autoplay muted></video>
 
-    <script defer src="face-api.min.js "></script>
-    <script defer src="testJs.js"></script>
-    <script src="protection.js"></script>
 </body>
 
 </html>
