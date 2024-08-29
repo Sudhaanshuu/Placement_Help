@@ -43,13 +43,13 @@ sendButton.addEventListener("click", () => {
     let response;
     switch (userMessage.toLowerCase()) {
         case "hi":
-            response = "Hi, I'm SUKU , an AI assistant for placement preparation.";
+            response = "Hi, I'm Princy , an AI assistant for placement preparation.";
             break;
-        case "what can you do for me":
-            response = "I can do many things related to placement. How can I assist you?";
+        case "what can you do for me" || "what services can you provide":
+            response = "I can do many things like job prediction, roadmap, consultancy, interview preparations, etc. How may I assist you?";
             break;
         default:
-            response = "I'm sorry, I did not understand.";
+            response = "My apologies, I could not understand your request.";
             break;
     }
 
@@ -75,13 +75,13 @@ function startSpeechRecognition() {
         let response;
         switch (spokenText.toLowerCase()) {
             case "hi":
-                response = "Hi, I'm SUKU, an AI assistant for placement preparation.";
+                response = "Hi, I'm Princy , an AI assistant for placement preparation.";
                 break;
-            case "what can you do for me?":
-                response = "I can do many things related to placement. How can I assist you?";
+            case "what can you do for me" || "what services can you provide":
+                response = "I can do many things like job prediction, roadmap, consultancy, interview preparations, etc. How may I assist you?";
                 break;
             default:
-                response = "I'm sorry, I did not understand.";
+                response = "My apologies, I could not understand your request.";
                 break;
         }
 
