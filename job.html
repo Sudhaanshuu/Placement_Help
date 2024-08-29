@@ -1,162 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume Job Role Matcher</title>
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Job Role Predictor</title>
+    <link rel="stylesheet" href="styles.css" />
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-        }
-        
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        
-        h1 {
-            margin-bottom: 20px;
-            font-size: 2em;
-            color: #333;
-        }
-        
-        #upload-container {
-            margin-bottom: 20px;
-        }
-        
-        input[type="file"] {
-            display: block;
-            margin: 0 auto 10px;
-            padding: 10px;
-            background-color: #e7e7e7;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        
-        button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        
-        button:hover {
-            background-color: #0056b3;
-        }
-        
-        #result {
-            margin-top: 20px;
-            font-size: 1.2em;
-            color: #007bff;
-        }
-        
-        .loader {
-            border: 6px solid #f3f3f3;
-            border-radius: 50%;
-            border-top: 6px solid #007bff;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-        
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
-</head>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+      }
 
-<body>
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+        font-size: 2em;
+        color: #333;
+      }
+
+      #upload-container {
+        margin-bottom: 20px;
+      }
+
+      input[type="file"] {
+        display: block;
+        margin: 0 auto 10px;
+        padding: 10px;
+        background-color: #e7e7e7;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      #result {
+        margin-top: 20px;
+        font-size: 1.2em;
+        color: #007bff;
+      }
+
+      .loader {
+        border: 6px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 6px solid #007bff;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
     <div class="container">
-        <h1>Resume Job Role Matcher</h1>
-        <div id="upload-container">
-            <input type="file" id="resumeFile" accept="application/pdf">
-            <button id="matchButton" onclick="matchRoles()">Match Job Roles</button>
-        </div>
-        <div id="loader" class="loader" style="display: none;"></div>
-        <div id="result"></div>
+      <h1>Resume Job Role Matcher</h1>
+      <div id="upload-container">
+        <input type="file" id="resumeFile" accept="application/pdf" />
+        <button id="matchButton" onclick="matchRoles()">Match Job Roles</button>
+      </div>
+      <div id="loader" class="loader" style="display: none"></div>
+      <div id="result"></div>
     </div>
 
     <script src="script.js"></script>
     <script>
-        const roles = [
-            "Database Developer", "Portal Administrator", "Systems Security Administrator",
-            "Business Systems Analyst", "Software Systems Engineer", "Business Intelligence Analyst",
-            "CRM Technical Developer", "Mobile Applications Developer", "UX Designer",
-            "Quality Assurance Associate", "Web Developer", "Information Security Analyst",
-            "CRM Business Analyst", "Technical Support", "Project Manager",
-            "Information Technology Manager", "Programmer Analyst", "Design & UX",
-            "Solutions Architect", "Systems Analyst", "Network Security Administrator",
-            "Data Architect", "Software Developer", "E-Commerce Analyst",
-            "Technical Services/Help Desk/Tech Support", "Information Technology Auditor",
-            "Database Manager", "Applications Developer", "Database Administrator",
-            "Network Engineer", "Software Engineer", "Technical Engineer",
-            "Network Security Engineer", "Software Quality Assurance (QA) / Testing",
-            "Full Stack Developer", "Data Scientist", "Cloud Engineer", "DevOps Engineer",
-            "Machine Learning Engineer", "Cybersecurity Specialist", "Digital Marketing Specialist",
-            "SEO Specialist", "Content Manager", "Product Manager", "Scrum Master"
-            // Add more roles as needed
-        ];
+      const roles = [
+        "Database Developer",
+        "Portal Administrator",
+        "Systems Security Administrator",
+        "Business Systems Analyst",
+        "Software Systems Engineer",
+        "Business Intelligence Analyst",
+        "CRM Technical Developer",
+        "Mobile Applications Developer",
+        "UX Designer",
+        "Quality Assurance Associate",
+        "Web Developer",
+        "Information Security Analyst",
+        "CRM Business Analyst",
+        "Technical Support",
+        "Project Manager",
+        "Information Technology Manager",
+        "Programmer Analyst",
+        "Design & UX",
+        "Solutions Architect",
+        "Systems Analyst",
+        "Network Security Administrator",
+        "Data Architect",
+        "Software Developer",
+        "E-Commerce Analyst",
+        "Technical Services/Help Desk/Tech Support",
+        "Information Technology Auditor",
+        "Database Manager",
+        "Applications Developer",
+        "Database Administrator",
+        "Network Engineer",
+        "Software Engineer",
+        "Technical Engineer",
+        "Network Security Engineer",
+        "Software Quality Assurance (QA) / Testing",
+        "Full Stack Developer",
+        "Data Scientist",
+        "Cloud Engineer",
+        "DevOps Engineer",
+        "Machine Learning Engineer",
+        "Cybersecurity Specialist",
+        "Digital Marketing Specialist",
+        "SEO Specialist",
+        "Content Manager",
+        "Product Manager",
+        "Scrum Master",
+        // Add more roles as needed
+      ];
 
-        function matchRoles() {
-            const fileInput = document.getElementById('resumeFile');
-            const resultDiv = document.getElementById('result');
-            const loader = document.getElementById('loader');
-            const matchButton = document.getElementById('matchButton');
+      function matchRoles() {
+        const fileInput = document.getElementById("resumeFile");
+        const resultDiv = document.getElementById("result");
+        const loader = document.getElementById("loader");
+        const matchButton = document.getElementById("matchButton");
 
-            if (fileInput.files.length === 0) {
-                resultDiv.textContent = "Please upload a resume.";
-                return;
-            }
-
-            loader.style.display = "block";
-            resultDiv.textContent = "";
-            matchButton.disabled = true;
-
-            const file = fileInput.files[0];
-            const reader = new FileReader();
-
-            reader.onload = function(event) {
-                const text = event.target.result.toLowerCase();
-
-                const matchedRoles = roles.filter(role => {
-                    const roleWords = role.toLowerCase().split(' ');
-                    return roleWords.some(word => text.includes(word));
-                });
-
-                loader.style.display = "none";
-                matchButton.disabled = false;
-
-                if (matchedRoles.length > 0) {
-                    resultDiv.textContent = "Suggested Job Roles: " + matchedRoles.join(", ");
-                } else {
-                    resultDiv.textContent = "No matching job roles found.";
-                }
-            };
-
-            reader.readAsText(file);
+        if (fileInput.files.length === 0) {
+          resultDiv.textContent = "Please upload a resume.";
+          return;
         }
-    </script>
-</body>
 
+        loader.style.display = "block";
+        resultDiv.textContent = "";
+        matchButton.disabled = true;
+
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function (event) {
+          const text = event.target.result.toLowerCase();
+
+          const matchedRoles = roles.filter((role) => {
+            const roleWords = role.toLowerCase().split(" ");
+            return roleWords.some((word) => text.includes(word));
+          });
+
+          loader.style.display = "none";
+          matchButton.disabled = false;
+
+          if (matchedRoles.length > 0) {
+            resultDiv.textContent =
+              "Suggested Job Roles: " + matchedRoles.join(", ");
+          } else {
+            resultDiv.textContent = "No matching job roles found.";
+          }
+        };
+
+        reader.readAsText(file);
+      }
+    </script>
+  </body>
 </html>
