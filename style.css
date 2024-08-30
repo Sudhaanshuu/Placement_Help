@@ -1397,3 +1397,101 @@ body {
     color: #333;
     /* Dark grey color */
 }
+
+.custom-container {
+    background-color: #fff;
+    /* White background for container */
+    padding: 30px;
+    /* Increased padding */
+    margin-bottom: 20px;
+    border-radius: 4px;
+    /* Consistent border radius */
+    border: 2px solid #ff8a1d;
+    /* Border matching the theme */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    /* Box shadow for depth */
+}
+
+.custom-container h2 {
+    font-size: 32px;
+    color: #ff8a1d;
+    /* Orange title color */
+}
+
+.custom-container h3 {
+    font-size: 18px;
+    color: blue;
+    /* Blue subtitle color */
+}
+
+.custom-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: blue;
+    /* Blue label text */
+}
+
+.custom-container input,
+.custom-container textarea,
+.custom-container select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    /* Light gray border */
+    border-radius: 4px;
+    /* Consistent border radius */
+}
+
+.custom-container button {
+    padding: 10px 20px;
+    background-color: #ff8a1d;
+    /* Orange button background */
+    color: white;
+    /* White text on button */
+    border: none;
+    border-radius: 4px;
+    /* Consistent border radius */
+    cursor: pointer;
+}
+
+.custom-container button:hover {
+    background-color: blue;
+    /* Blue background on hover */
+}
+
+.custom-container .post {
+    background-color: #ffffff;
+    /* White background for posts */
+    color: blue;
+    /* Blue text for post content */
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    /* Consistent border radius */
+    position: relative;
+    border: 2px solid #ff8a1d;
+    /* Orange border for posts */
+}
+
+.custom-container .post button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: #ff8a1d;
+    /* Orange button background */
+    color: #ffffff;
+    /* White text */
+    border: none;
+    border-radius: 4px;
+    /* Consistent border radius */
+    cursor: pointer;
+}
+
+.custom-container .post button:hover {
+    background-color: blue;
+    /* Blue background on hover */
+}
