@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+    <style>
+        /* Global Styles */
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        /* Section Title */
+        
+        .section-title h2 {
+            font-size: 32px;
+            color: #ff8a1d;
+            text-align: center;
+        }
+        
+        .section-title p {
+            font-size: 18px;
+            color: blue;
+            text-align: center;
+        }
+        /* Info Box */
+        
+        .info {
+            background-color: #fff;
+            border: 2px solid #ff8a1d;
+            padding: 30px;
+            border-radius: 4px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            width: 90%;
+            max-width: 500px;
+        }
+        /* Form Labels */
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: blue;
+        }
+        /* Form Inputs and Textareas */
+        
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        /* Submit Button */
+        
+        input[type="submit"],
+        button {
+            background-color: #ff8a1d;
+            color: white;
+            cursor: pointer;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        input[type="submit"]:hover,
+        button:hover {
+            background-color: blue;
+        }
+        /* Error Message */
+        
+        #error-message {
+            color: red;
+            text-align: center;
+        }
+        /* General Form Container */
+        
+        form {
+            margin: 0 auto;
+            width: 90%;
+            max-width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Login</h2>
+    <form id="login-form">
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+        <button type="submit">Login</button>
+    </form>
+
+    <div id="error-message" style="color: red;"></div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch('http://localhost:3000/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                console.log('Server response:', result);
+
+                if (result.success) {
+                    console.log('Redirecting to index.html');
+                    window.location.href = "/index.html";
+                } else {
+                    console.log('Login failed:', result.message);
+                    document.getElementById('error-message').textContent = result.message;
+                }
+            } catch (error) {
+                console.log('An error occurred:', error);
+                document.getElementById('error-message').textContent = 'An error occurred. Please try again.';
+            }
+        });
+    </script>
+</body>
+
+</html>
