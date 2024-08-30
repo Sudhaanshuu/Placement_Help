@@ -5,21 +5,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+
+    <style>
+        /* General body styles */
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        /* Container for the form */
+        
+        .container {
+            background-color: white;
+            border: 1px solid #ff8a1d;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+        /* Styling for the h2 element */
+        
+        h2 {
+            color: #ff8a1d;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        /* Styling for form labels */
+        
+        label {
+            font-size: 18px;
+            color: #007bff;
+            /* Blue color for labels */
+            display: block;
+            margin-bottom: 5px;
+        }
+        /* Styling for input fields */
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px 3px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        /* Styling for the submit button */
+        
+        button[type="submit"] {
+            background-color: #ff8a1d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #e07d00;
+            /* Slightly darker shade for hover effect */
+        }
+    </style>
 </head>
 
 <body>
-    <h2>Sign Up</h2>
-    <form action="http://localhost:3000/register" method="POST">
-        <!-- Updated URL -->
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" required><br><br>
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
-        <button type="submit">Sign Up</button>
-    </form>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form action="http://localhost:3000/register" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
 </body>
 
 </html>
