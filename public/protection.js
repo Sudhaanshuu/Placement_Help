@@ -39,3 +39,33 @@ document.addEventListener('keydown', function(e) {
         alert('Violation of exam environment: Keyboard shortcuts are disabled.');
     }
 });
+
+// Request fullscreen mode
+function requestFullscreen() {
+    if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+    } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+        document.documentElement.mozRequestFullScreen();
+    } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
+        document.documentElement.webkitRequestFullscreen();
+    } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+        document.documentElement.msRequestFullscreen();
+    }
+}
+
+requestFullscreen();
+
+// Request microphone access (dummy for prototype)
+function requestMicrophoneAccess() {
+    navigator.mediaDevices.getUserMedia({ audio: true })
+        .then(function(stream) {
+            alert('Microphone access granted.');
+            // For the prototype, we are not using the stream, so we can stop it immediately
+            stream.getTracks().forEach(track => track.stop());
+        })
+        .catch(function(err) {
+            alert('Microphone access denied.');
+        });
+}
+
+requestMicrophoneAccess();
