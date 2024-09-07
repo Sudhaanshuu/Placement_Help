@@ -113,3 +113,35 @@ app.get('/signup.html', (req, res) => {
 app.get('/dashboard', checkAuth, (req, res) => {
     res.send('Welcome to your dashboard');
 });
+app.get('/job', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'job.html'));
+});
+
+
+// API to post a job/internship
+app.post('/post-job', (req, res) => {
+    const { postType, companyName, description, applyLink } = req.body;
+
+    const sql = `INSERT INTO jobs (postType, companyName, description, applyLink) VALUES (?, ?, ?, ?)`;
+    db.query(sql, [postType, companyName, description, applyLink], (err, result) => {
+        if (err) {
+            console.log(err);
+            res.status(500).send('Database Error');
+        } else {
+            res.status(200).send('Job/Internship posted successfully');
+        }
+    });
+});
+
+// API to fetch jobs/internships
+app.get('/fetch-jobs', (req, res) => {
+    const sql = `SELECT * FROM jobs`;
+    db.query(sql, (err, results) => {
+        if (err) {
+            console.log(err);
+            res.status(500).send('Database Error');
+        } else {
+            res.status(200).json(results);
+        }
+    });
+});

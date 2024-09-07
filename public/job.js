@@ -1,52 +1,49 @@
 document.getElementById('postForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const postType = document.getElementById('postType').value;
-    const companyName = document.getElementById('companyName').value;
-    const description = document.getElementById('description').value;
-    const applyLink = document.getElementById('applyLink').value;
-
-    const post = {
-        type: postType,
-        company: companyName,
-        description: description,
-        link: applyLink
+    const postData = {
+        postType: document.getElementById('postType').value,
+        companyName: document.getElementById('companyName').value,
+        description: document.getElementById('description').value,
+        applyLink: document.getElementById('applyLink').value
     };
 
-    let posts = JSON.parse(localStorage.getItem('posts')) || [];
-    posts.push(post);
-    localStorage.setItem('posts', JSON.stringify(posts));
-
-    renderPosts();
-    this.reset();
+    fetch('/post-job', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(postData)
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert(data);
+            loadPosts();
+        })
+        .catch(err => console.error('Error:', err));
 });
 
-function renderPosts() {
-    const postsContainer = document.getElementById('postsContainer');
-    postsContainer.innerHTML = '';
+// Function to load and display posted jobs/internships
+function loadPosts() {
+    fetch('/fetch-jobs')
+        .then(response => response.json())
+        .then(posts => {
+            const postsContainer = document.getElementById('postsContainer');
+            postsContainer.innerHTML = '';
 
-    let posts = JSON.parse(localStorage.getItem('posts')) || [];
-
-    posts.forEach((post, index) => {
-        const postDiv = document.createElement('div');
-        postDiv.className = 'post';
-
-        postDiv.innerHTML = `
-            <h3>${post.type}: ${post.company}</h3>
-            <p>${post.description}</p>
-            <a href="${post.link}" target="_blank">Apply Here</a>
-            <button onclick="removePost(${index})">Remove</button>
-        `;
-
-        postsContainer.appendChild(postDiv);
-    });
+            posts.forEach(post => {
+                const postDiv = document.createElement('div');
+                postDiv.innerHTML = `
+                <h4>${post.postType === 'job' ? 'Job' : 'Internship'} at ${post.companyName}</h4>
+                <p>${post.description}</p>
+                <a href="${post.applyLink}" target="_blank">Apply Here</a>
+                <hr>
+            `;
+                postsContainer.appendChild(postDiv);
+            });
+        })
+        .catch(err => console.error('Error fetching posts:', err));
 }
 
-function removePost(index) {
-    let posts = JSON.parse(localStorage.getItem('posts')) || [];
-    posts.splice(index, 1);
-    localStorage.setItem('posts', JSON.stringify(posts));
-    renderPosts();
-}
-
-document.addEventListener('DOMContentLoaded', renderPosts);
+// Load posts on page load
+window.onload = loadPosts;
