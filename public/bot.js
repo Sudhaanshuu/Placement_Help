@@ -1,10 +1,39 @@
+const API_URL = "https://api-inference.huggingface.co/models/google/flan-t5-large";
+const API_KEY = "#"; // take from env
+
 const chatbot = document.getElementById("chatbot");
 const sendButton = document.querySelector("#chatbot-input button");
 const userInputElement = document.getElementById("user-input");
 const chatContent = document.getElementById("chatbot-messages");
 const micButton = document.getElementById("mic-btn");
 
-// Function to add user message to the chat
+// Custom responses for specific scenarios
+const customResponses = {
+    greeting: [
+        "Hi! I'm Princy, an AI assistant for placement preparation and educational queries. How can I help you today?",
+        "Hello! I'm Princy, your AI chatbot for placement help and educational support. What would you like to know?",
+        "Greetings! Princy here, your AI placement and education helper. Ready to boost your knowledge and career prospects?"
+    ],
+    default: [
+        "As Princy, your AI placement and education assistant, I'd be happy to help with that. Let me think...",
+        "Interesting question! As an AI focused on educational support and placement help, I'll do my best to assist you. One moment please...",
+        "I'm Princy, your placement and education AI, and I'm here to help with queries like this. Let me process that for you..."
+    ]
+};
+
+async function query(data) {
+    const response = await fetch(API_URL, {
+        headers: {
+            "Authorization": `Bearer ${API_KEY}`,
+            "Content-Type": "application/json"
+        },
+        method: "POST",
+        body: JSON.stringify(data)
+    });
+    const result = await response.json();
+    return result;
+}
+
 function addUserMessage(message) {
     const userMessage = document.createElement("div");
     userMessage.textContent = message;
@@ -13,7 +42,6 @@ function addUserMessage(message) {
     userInputElement.value = "";
 }
 
-// Function to add chatbot message to the chat and speak it
 function addChatbotMessage(message) {
     const chatbotMessage = document.createElement("div");
     chatbotMessage.textContent = message;
@@ -27,39 +55,55 @@ function addChatbotMessage(message) {
     }
 }
 
-// Function to toggle the chatbot window visibility
 function toggleChatbot() {
     const chatbotWindow = document.getElementById("chatbot-window");
     chatbotWindow.style.display = chatbotWindow.style.display === "none" ? "flex" : "none";
 }
 
-// Send button event listener
-sendButton.addEventListener("click", () => {
+async function getResponse(userMessage) {
+    const lowerCaseMessage = userMessage.toLowerCase();
+
+    // Check for greetings
+    if (lowerCaseMessage.includes("hi") || lowerCaseMessage.includes("hello") || lowerCaseMessage.includes("hey")) {
+        return customResponses.greeting[Math.floor(Math.random() * customResponses.greeting.length)];
+    }
+
+    // For all other messages, use the Hugging Face API
+    try {
+        const promptedMessage = `Answer the following question as Princy, an AI assistant for placement preparation and educational support: ${userMessage}`;
+        const response = await query({ "inputs": promptedMessage });
+        let botResponse = response[0].generated_text;
+
+        // Ensure the response mentions Princy and educational/placement assistance if it doesn't already
+        if (!botResponse.toLowerCase().includes("princy") && !botResponse.toLowerCase().includes("placement") && !botResponse.toLowerCase().includes("education")) {
+            botResponse = `As per my knowledge ${botResponse}`;
+        }
+
+        return botResponse;
+    } catch (error) {
+        console.error("Error:", error);
+        return "As Princy, your AI placement and education assistant, I want to ensure I give you accurate information. Could you please try again?";
+    }
+}
+
+sendButton.addEventListener("click", async() => {
     const userMessage = userInputElement.value.trim();
     if (userMessage === "") return;
 
     addUserMessage(userMessage);
+    addChatbotMessage("Thinking...");
 
-    let response;
-    switch (userMessage.toLowerCase()) {
-        case "hi":
-            response = "Hi, I'm Princy , an AI assistant for placement preparation.";
-            break;
-        case "what can you do for me" || "what services can you provide":
-            response = "I can do many things like job prediction, roadmap, consultancy, interview preparations, etc. How may I assist you?";
-            break;
-        default:
-            response = "My apologies, I could not understand your request.";
-            break;
-    }
+    const response = await getResponse(userMessage);
+
+    // Remove the "Thinking..." message
+    chatContent.removeChild(chatContent.lastChild);
 
     addChatbotMessage(response);
 });
 
-// Function to start speech recognition
 function startSpeechRecognition() {
     if (!('SpeechRecognition' in window || 'webkitSpeechRecognition' in window)) {
-        addChatbotMessage("Wating...");
+        addChatbotMessage("Speech recognition is not supported in your browser.");
         return;
     }
 
@@ -68,55 +112,32 @@ function startSpeechRecognition() {
     recognition.continuous = false;
     recognition.interimResults = false;
 
-    recognition.onresult = (event) => {
+    recognition.onresult = async(event) => {
         const spokenText = event.results[0][0].transcript;
         addUserMessage(spokenText);
+        addChatbotMessage("Thinking...");
 
-        let response;
-        switch (spokenText.toLowerCase()) {
-            case "hi":
-                response = "Hi, I'm Princy , an AI assistant for placement preparation.";
-                break;
-            case "what can you do for me" || "what services can you provide":
-                response = "I can do many things like job prediction, roadmap, consultancy, interview preparations, etc. How may I assist you?";
-                break;
-            default:
-                response = "My apologies, I could not understand your request.";
-                break;
-        }
+        const response = await getResponse(spokenText);
+
+        // Remove the "Thinking..." message
+        chatContent.removeChild(chatContent.lastChild);
 
         addChatbotMessage(response);
     };
 
     recognition.onerror = (event) => {
-        addChatbotMessage("wait...");
+        console.error("Speech Recognition Error:", event.error);
+        addChatbotMessage("I'm having trouble understanding you. Could you please type your question instead?");
     };
 
     recognition.start();
 }
 
-// Mic button event listener
 micButton.addEventListener("click", startSpeechRecognition);
 
 // Initial state for the chatbot
 chatbot.style.display = "block";
 toggleChatbot();
 
-if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
-    const recognition = new(window.SpeechRecognition || window.webkitSpeechRecognition)();
-    recognition.lang = 'en-US';
-    recognition.continuous = false;
-    recognition.interimResults = false;
-
-    recognition.onresult = (event) => {
-        console.log('Result:', event.results[0][0].transcript);
-    };
-
-    recognition.onerror = (event) => {
-        console.error('Error:', event.error);
-    };
-
-    recognition.start();
-} else {
-    console.log("Speech Recognition not supported.");
-}
+// Initial greeting
+addChatbotMessage(customResponses.greeting[0]);
