@@ -9,11 +9,7 @@ const micButton = document.getElementById("mic-btn");
 
 // Custom responses for specific scenarios
 const customResponses = {
-    greeting: [
-        "Hi! I'm Princy, an AI assistant for placement preparation and educational queries. How can I help you today?",
-        "Hello! I'm Princy, your AI chatbot for placement help and educational support. What would you like to know?",
-        "Greetings! Princy here, your AI placement and education helper. Ready to boost your knowledge and career prospects?"
-    ],
+
     default: [
         "As Princy, your AI placement and education assistant, I'd be happy to help with that. Let me think...",
         "Interesting question! As an AI focused on educational support and placement help, I'll do my best to assist you. One moment please...",
