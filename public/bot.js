@@ -7,6 +7,9 @@ const userInputElement = document.getElementById("user-input");
 const chatContent = document.getElementById("chatbot-messages");
 const micButton = document.getElementById("mic-btn");
 
+let isBotActive = false;
+
+
 // Custom responses for specific scenarios
 const customResponses = {
     greeting: [
@@ -48,17 +51,25 @@ function addChatbotMessage(message) {
     chatbotMessage.classList.add("message", "bot");
     chatContent.appendChild(chatbotMessage);
 
-    // Speak the response
-    if ('speechSynthesis' in window) {
+    // Speak the response only if the bot is active
+    if (isBotActive && 'speechSynthesis' in window) {
         const speech = new SpeechSynthesisUtterance(message);
         window.speechSynthesis.speak(speech);
     }
 }
 
+
 function toggleChatbot() {
     const chatbotWindow = document.getElementById("chatbot-window");
-    chatbotWindow.style.display = chatbotWindow.style.display === "none" ? "flex" : "none";
+    if (chatbotWindow.style.display === "none") {
+        chatbotWindow.style.display = "flex";
+        isBotActive = true; // Set bot as active when opened
+    } else {
+        chatbotWindow.style.display = "none";
+        isBotActive = false; // Set bot as inactive when closed
+    }
 }
+
 
 async function getResponse(userMessage) {
     const lowerCaseMessage = userMessage.toLowerCase();
