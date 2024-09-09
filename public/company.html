@@ -11,11 +11,9 @@
 
     <link rel="icon" href="iMG/Website/p2.png" type="image/png">
 
-    <title>Hiring Hub</title>
+    <title>Placement Help</title>
 
     <!-- bootstrap core css -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
     <link rel="stylesheet" type="text/css" href="iMG/Extra/css/bootstrap.css" />
     <!-- font awesome style -->
     <link rel="stylesheet" type="text/css" href="iMG/Extra/css/font-awesome.min.css" />
@@ -23,11 +21,12 @@
     <!-- Custom styles for this template -->
     <link href="style.css" rel="stylesheet" />
 
+
 </head>
 
 <body>
     <div class="hero_area">
-        <!-- header section starts -->
+        <!-- header section strats -->
         <header class="header_section">
 
             <div class="header_bottom">
@@ -35,96 +34,148 @@
                     <nav class="navbar navbar-expand-lg custom_nav-container ">
                         <a class="navbar-brand" href="index.html">
                             <span>
-                          Placement Help
-          </span>
+                              Placement Help
+              </span>
                         </a>
 
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class=""> </span>
-                   </button>
+              <span class=""> </span>
+                       </button>
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav ">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                                </li>
+                          <ul class="navbar-nav ">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                           
+                            <li class="nav-item">
+                                <a class="nav-link" href="ExamEnv.html">Test Env</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="job.html">Hiring</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="mlmodel.html">Job-Role</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="lobby.html">Video call</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="freelancing.html">Freelance</a>
+                            </li>
 
-
-                                   
-                                <li class="nav-item">
-                                    <a class="nav-link" href="student.html">Students</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link" href="free.html">Freelance</a>
-                                </li>
-                                
-                                <li class="nav-item">
-                                    <a class="nav-link" href="company.html">Company</a>
-                                </li>
-                              
-
-                                <li class="nav-item">
-                                    <a class="nav-link" href="index.html#contact">Contact Us</a>
-                                </li>
-                            </ul>
+                           
+                        </ul>
                         </div>
                     </nav>
                 </div>
             </div>
         </header>
-    </div>
-    <div style="padding: 20px 90px;">
-        <section class="custom-container">
-            <h2>Post a Job or Internship</h2>
-            <form id="postForm">
-                <label for="postType">Type:</label>
-                <select id="postType" name="postType" required>
-                    <option value="job">Job</option>
-                    <option value="internship">Internship</option>
-                </select>
+        <div id="chatbot">
+            <div id="chatbot-icon" onclick="toggleChatbot()">
+                🤖
+            </div>
+            <div id="chatbot-window">
+                <div id="chatbot-header">
+                    <span>Suku AI</span>
+                    <button id="close-chatbot" onclick="toggleChatbot()">X</button>
+                </div>
+                <div id="chatbot-messages"></div>
+                <div id="chatbot-input">
+                    <input type="text" id="user-input" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+                    <button onclick="sendMessage()">Send</button>
+                    <button id="voice-btn" onclick="toggleVoice()">🔊</button>
+                    <button id="mic-btn" onclick="startListening()">🎤</button>
+                </div>
+            </div>
+        </div>
+        <!-- end header section -->
+        <!-- slider section -->
+        <section class="slider_section ">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-md-6 ">
+                        <div class="detail-box">
+                            <h1>
+                                <span style="color: #ff8a1d;">Company</span><br> Connect with top talent ready to elevate your business and drive innovation and growth.
+                            </h1>
+                            <p>
+                              Unlock access to a pool of talented students and freelancers ready to bring fresh perspectives and innovative solutions to your business. Our platform helps you find the right talent to drive your projects forward and achieve your organizational goals.
+                            </p>
+                            <a href="#service">Explore</a>
+                        </div>
 
-                <label for="companyName">Company Name:</label>
-                <input type="text" id="companyName" name="companyName" required>
-
-                <label for="description">Description:</label>
-                <textarea id="description" name="description" required></textarea>
-
-                <label for="applyLink">Apply Link:</label>
-                <input type="url" id="applyLink" name="applyLink" required>
-
-                <button type="submit">Post</button>
-            </form>
-
-            <h3>Posted Jobs/Internships</h3>
-            <div id="postsContainer"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="img-box">
+                            <img src="iMG/Website/p1.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
+        <!-- end slider section -->
     </div>
 
-    <div id="chatbot">
-        <div id="chatbot-icon" onclick="toggleChatbot()">
-            🤖
-        </div>
-        <div id="chatbot-window">
-            <div id="chatbot-header">
-                <span>Suku AI</span>
-                <button id="close-chatbot" onclick="toggleChatbot()">X</button>
+    <!-- feature section -->
+    <section class="feature_section">
+        <div class="container">
+            <div class="feature_container">
+                <div class="box">
+                    <a href="student.html">
+                        <div class="img-box">
+                            <div class="img-box">
+                                <img src="iMG/Website/i4.png" alt="" />
+                            </div>
+                        </div>
+                    </a>
+                    <h5 class="name">
+                        Students
+                    </h5>
+                </div>
+                <div class="box active">
+                    <div class="img-box">
+                        <a href="free.html">
+                            <div class="img-box">
+                                <img src="iMG/Website/i6.png" alt="" />
+                            </div>
+                        </a>
+                    </div>
+                    <h5 class="name">
+                        Freelancing
+                    </h5>
+                </div>
+                <!-- <div class="box">
+                    <a href="company.html">
+                        <div class="img-box">
+                            <div class="img-box">
+                                <img src="iMG/Website/i5.png" alt="" />
+                            </div>
+                        </div>
+                    </a>
+                    <h5 class="name">
+                        Company
+                    </h5>
+                </div> -->
             </div>
-            <div id="chatbot-messages"></div>
-            <div id="chatbot-input">
-                <input type="text" id="user-input" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
-                <button onclick="sendMessage()">Send</button>
-                <button id="voice-btn" onclick="toggleVoice()">🔊</button>
-                <button id="mic-btn" onclick="startListening()">🎤</button>
-            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- end feature section -->
+
+    <!-- about section -->
+
+   
+    <!-- end service section -->
+
+
+    <!-- contact section -->
 
     <section class="contact_section layout_padding" id="contact">
         <div class="container">
             <div class="heading_container">
                 <h2>
-                    Contact Us
+                    Feedback 
                 </h2>
             </div>
             <div class="row">
@@ -248,9 +299,8 @@
     <!-- footer section -->
 
 
-
+    <script src="script.js"></script>
     <script src="bot.js"></script>
-    <script src="job.js"></script>
     <!-- Google Map -->
 
 
