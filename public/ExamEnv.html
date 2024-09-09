@@ -1,126 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hiring Env</title>
     <link rel="stylesheet" type="text/css" href="iMG/Extra/css/bootstrap.css" />
     <!-- font awesome style -->
-    <link rel="stylesheet" type="text/css" href="iMG/Extra/css/font-awesome.min.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="iMG/Extra/css/font-awesome.min.css"
+    />
 
     <!-- Custom styles for this template -->
     <link href="style.css" rel="stylesheet" />
     <style>
-        #container {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
-        
-        video,
-        img {
-            border: 2px solid #ccc;
-            border-radius: 8px;
-            width: 48%;
-            height: auto;
-        }
-        
-        canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            margin-top: 110px;
-            margin-left: 0px;
-        }
-        
-        .btn {
-            background-color: #ff8a1d;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-left: 50%;
-        }
-        
-        .btn:hover {
-            background-color: blue;
-        }
+      #container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+
+      video,
+      img {
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        width: 48%;
+        height: auto;
+      }
+
+      canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-top: 190px;
+        margin-left: 24px;
+      }
+
+      .btn {
+        background-color: #ff8a1d;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-left: 50%;
+      }
+
+      .btn:hover {
+        background-color: blue;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <header class="header_section">
+      <div class="header_bottom">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="index.html">
+              <span> Placement Help </span>
+            </a>
 
-        <div class="header_bottom">
-            <div class="container-fluid">
-                <nav class="navbar navbar-expand-lg custom_nav-container ">
-                    <a class="navbar-brand" href="index.html">
-                        <span>
-                          Placement Help
-          </span>
-                    </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class=""> </span>
+            </button>
 
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class=""> </span>
-                   </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html"
+                    >Home <span class="sr-only">(current)</span></a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#about"> About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="list.html">Tech Book</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="mocTest.html">Mock</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="ExamEnv.html">Test Env</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="job.html">Hiring</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="mlmodel.html">Job-Roll</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="lobby.html">Video call</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="freelancing.html">Freelance</a>
+                </li>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#about"> About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="list.html">Tech Book</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="Mock.html">Mock</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="ExamEnv.html">Test Env</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="job.html">Hiring</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="mlmodel.html">Job-Roll</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="lobby.html">Video call</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="freelancing.html">Freelance</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="#contact">Contact Us</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+                <li class="nav-item">
+                  <a class="nav-link" href="#contact">Contact Us</a>
+                </li>
+              </ul>
             </div>
+          </nav>
         </div>
+      </div>
     </header>
     <div id="container">
-        <video id="video1" autoplay muted></video>
-        <img id="ipcam" src="http://192.168.39.243:8080/video" alt="IP Camera Stream">
-        <canvas width="300" height="200" id="canvas1"></canvas>
-        <canvas width="300 " height="200 " id="canvas2"></canvas>
+      <video id="video1" autoplay muted></video>
+      <img
+        id="ipcam"
+        src="http://172.29.19.164:8080/video"
+        alt="IP Camera Stream"
+      />
+      <canvas width="300" height="200" id="canvas1"></canvas>
+      <canvas width="300 " height="200 " id="canvas2"></canvas>
     </div>
     <div>
-        <button class="btn">Start</button>
+      <button class="btn">Start</button>
     </div>
 
     <script defer src="face-api.min.js "></script>
     <script defer src="testJs.js"></script>
     <script src="protection.js"></script>
-</body>
-
+  </body>
 </html>
