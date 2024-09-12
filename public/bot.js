@@ -1,5 +1,29 @@
 const API_URL = "https://api-inference.huggingface.co/models/google/flan-t5-large";
-const API_KEY = "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"; // take from env
+// const customResponses = {
+//   greeting: [
+//     "Hi! I'm Princy, an AI assistant for placement preparation and educational queries. How can I help you today?",
+//     "Hello! I'm Princy, your AI chatbot for placement help and educational support. What would you like to know?",
+//     "Greetings! Princy here, your AI placement and education helper. Ready to boost your knowledge and career prospects?",
+//   ],
+//   default: [
+//     "As Princy, your AI placement and education assistant, I'd be happy to help with that. Let me think...",
+//     "Interesting question! As an AI focused on educational support and placement help, I'll do my best to assist you. One moment please...",
+//     "I'm Princy, your placement and education AI, and I'm here to help with queries like this. Let me process that for you...",
+//   ],
+// };
+// const customResponses = {
+//   greeting: [
+//     "Hi! I'm Princy, an AI assistant for placement preparation and educational queries. How can I help you today?",
+//     "Hello! I'm Princy, your AI chatbot for placement help and educational support. What would you like to know?",
+//     "Greetings! Princy here, your AI placement and education helper. Ready to boost your knowledge and career prospects?",
+//   ],
+//   default: [
+//     "As Princy, your AI placement and education assistant, I'd be happy to help with that. Let me think...",
+//     "Interesting question! As an AI focused on educational support and placement help, I'll do my best to assist you. One moment please...",
+//     "I'm Princy, your placement and education AI, and I'm here to help with queries like this. Let me process that for you...",
+//   ],
+// };
+const API_KEY = "#"; // take from env
 
 const chatbot = document.getElementById("chatbot");
 const sendButton = document.querySelector("#chatbot-input button");
