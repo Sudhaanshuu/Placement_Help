@@ -1,7 +1,7 @@
 # Placement Help
 
 Welcome to Placement Help! This repository is designed to assist you in preparing for placements and improving your coding skills.
-link-[Placement Help](https://sudhaanshuu.github.io/Placement_Help/)
+link-[Placement Help](https://placementhelp.netlify.app/)
 
 ## Features
 
