@@ -15,4 +15,5 @@ yarn.lock
 *.log
 
 .vscode
+app.cpython-313.pyc
 
